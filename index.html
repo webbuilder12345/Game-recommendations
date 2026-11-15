@@ -9,9 +9,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="title">
     <h1>Welcome to Game-recommendations! </h1>
+    </div>
+</body>
+<script>
+    function searchGame() {
+    const search = document.getElementById("gameSearch").value.toLowerCase().trim();
+
+    const games = {
+        "stray": "stray",
+        "the last of us": "tlou",
+        "the last of us 1": "tlou",
+        "the last of us part 1": "tlou",
+        "tlou 1": "tlou",
+        "tlou part 1": "tlou",
+         "tlou": "tlou",
+        "tlou2": "tlou2",
+        "the last of us 2": "tlou2",
+        "the last of us part 2": "tlou2", 
+        "the last of us part 2 remastered": "tlou2",
+        "red dead redemption 2": "rdr2",
+        "rdr2": "rdr2",
+        "stardew valley": "Stardew-valley",
+        "terraria": "Terraria",
+        "hm1": "hm",
+        "hotline miami 1": "hm",
+        "hotline miami part 1": "hm",
+          "hm2": "hm2",
+        "hotline miami 2": "hm2",
+        "hotline miami part 2": "hm2",
+        "hotline miami part 2: Wrong number": "hm2",
+    };
+
+    const gameId = games[search];
+
+    if (gameId) {
+        document.getElementById(gameId).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    } else {
+        alert("Game not found!");
+    }
+}
+</script>
+<body>
+  <form onsubmit="searchGame(); return false;"><input type="text" id="gameSearch" placeholder="Search for any game..."> 
     <div class="games section">
+        <div id="stray">
     <h1>Stray</h1>
+    </div>
     <img src="stray.jpg" width="500">
     <h2>Genre: Adventure</h2>
     <h2>Developer: BlueTwelve Studio</h2>
@@ -23,7 +71,9 @@
         made sure to optimize it beautifully so that players with older systems
          can experience the game at a high and consistent frame rate too.
          The game is 30 dollars / euros on <a href="https://store.steampowered.com/app/1332010/Stray/"target="_blank">steam</a> </h2>
+     <div id="Stardew-valley">
     <h1>Stardew Valley</h1>
+    </div>
     <img src="stardew valley.jpg" width="500">
     <h2>Genre: Simulator</h2>
     <h2>Developer: Eric Barone</h2>
@@ -33,17 +83,21 @@
         It also has caves where you can go mine. It has much content and it is a 2d indie game 
         made by 1 single person. If you want to support him, go and buy it on steam <a href="https://store.steampowered.com/app/413150/Stardew_Valley/"target="_blank">here</a>.
     </h2>
+    <div id="Terraria">
     <h1>Terraria</h1>
+    </div>
     <img src="terraria.jpg" width="500">
     <h2>Genre: 2D sandbox</h2>
     <h2>Developer/Publisher: Re-Logic</h2>
-    <h2>Gameplay: Terraria is a 2d game with tons of exploration and content. It is a sandbox game meaning
+    <h2>About: Terraria is a 2d game with tons of exploration and content. It is a sandbox game meaning
          its a world that you can do anything in. It is like minecraft but 2d and not blocky.
          It has a ton of structures, epic boss fights and tons of exploration. As well as great
         weapons and progression. It is also an indie game so if you want to support the developers,
         consider getting it on <a href="https://store.steampowered.com/app/105600/Terraria/"target="_blank">steam</a>.
-    </h2>  
+    </h2> 
+    <div id="rdr2"> 
     <h1>Red Dead Redemption 2</h1>
+    </div>
     <img src="rdr.png" width="500">
     <h2>Genre: Open world action</h2>
     <h2>Publisher/Developer: Rockstar Games</h2>
@@ -56,7 +110,9 @@
         It is though extremely optimized and can run greatly on slower or older systems. You can buy it 
         <a href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/"target="_blank"> here</a> for 60 dollars (or whatever currency obviously).
     </h2>
+    <div id="tlou">
     <h1>The Last Of Us Part I</h1>
+    </div>
     <img src="tlou 1.jpg" width="500">
     <h2>Genre: Story/ action game</h2>
     <h2>Publisher: Sony</h2>
@@ -67,7 +123,9 @@
         the character's relationship with each other. The game is 60 euros / dollars on <a href="https://store.steampowered.com/app/1888930/The_Last_of_Us_Part_I/"target="_blank">steam</a>
         but frequently goes on sale.
     </h2>
+    <div id="tlou2">
     <h1>The Last Of Us Part II Remastered</h1>
+    </div>
     <img src="tlou 2.jpg" width="500">
     <h2>Genre: Story/ action game</h2>
     <h2>Publisher: Sony</h2>
@@ -76,7 +134,9 @@
     <h2>About: The Last Of Us II is a direct sequel to part 1, so I really recommend playing part I first.
         it is set a few years after part 1 and is driven by Ellie's anger and revenge. It explores what anger does to people 
         and how far it can change them. The game is 50 euros / dollars on <a href="https://store.steampowered.com/app/2531310/The_Last_of_Us_Part_II_Remastered/"target="_blank">Steam</a>. But also gets discounted often <h2>
+    <div id="hm">
     <h1>Hotline Miami</h1>
+    </div>
     <img src="hm.jpg" width='500'>
     <h2>Genre: Action, Arcade </h2>
     <h2>Developer: Dennaton Games </h2>
@@ -85,7 +145,9 @@
         people. Hotline miami has an incredible story and many useful lessons even if it looks like quite the opposite. 
         It is really fast paced and you die in one hit, but you respawn immediately so its about learning the level.
         It is also partly known for its great soundtracks and its really violent, so not for everyone. The gameis  10 euros / dollars on <a href="https://store.steampowered.com/app/219150/Hotline_Miami/"target="_blank">steam</a>
-        <h1>Hotline Mami 2:Wrong Number</h1>
+        <div id="hm2">
+        <h1>Hotline Mami 2: Wrong Number</h1>
+        </div>
         <img src="Hm2.png" width='500'>
          <h2>Genre: Action, Arcade </h2>
          <h2>Developer: Dennaton Games </h2>
@@ -119,5 +181,39 @@
         }
         body {
     font-family: roboto;
+
+#gameSearch::placeholder {
+    color: #93A3B8;
+}
+#gameSearch:focus {
+    border-color: #ffffff;
+}
+form {
+    width: 100% ;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+}
+#gameSearch {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    padding: 15px;
+    font-size: 16px;
+    background-color:#293541;
+    color: white;
+    border: 1px solid #87CEEB;
+    border-radius: 8px;
+     outline: none;
+}
+#gameSearch:focus {
+    border-color: #ffffff;
+}
+.title {
+    text-align: center;
+}
+img {
+    background-color: #293541;
 }
     </style>
