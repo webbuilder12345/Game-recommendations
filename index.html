@@ -53,16 +53,42 @@
             behavior: "smooth",
             block: "start"
         });
-    } else {
-        alert("Game not found!");
+        } else {
+        alert("Seems like the game isn't here, try searching for something else.");
     }
 }
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+    const stars = document.querySelectorAll(".favorite");
+
+    stars.forEach(star => {
+        const game = star.dataset.game;
+
+        if (localStorage.getItem(game) === "true") {
+            star.classList.add("active");
+            star.textContent = "★";
+        }
+
+        star.addEventListener("click", () => {
+            const active = star.classList.toggle("active");
+
+            star.textContent = active ? "★" : "☆";
+
+            localStorage.setItem(game, active);
+        });
+    });
+});
+
 </script>
 <body>
   <form onsubmit="searchGame(); return false;"><input type="text" id="gameSearch" placeholder="Search for any game..."> 
     <div class="games section">
         <div id="stray">
-    <h1>Stray</h1>
+    <h1>
+    Stray
+   <button type="button" class="favorite" data-game="stray">☆</button>
+    </h1>
     </div>
     <img src="stray.jpg" width="500">
     <h2>Genre: Adventure</h2>
@@ -76,7 +102,9 @@
          can experience the game at a high and consistent frame rate too.
          The game is 30 dollars / euros on <a href="https://store.steampowered.com/app/1332010/Stray/"target="_blank">steam</a> </h2>
      <div id="Stardew-valley">
-    <h1>Stardew Valley</h1>
+    <h1>Stardew Valley
+       <button type="button" class="favorite" data-game="Stardew-valley">☆</button> 
+    </h1>
     </div>
     <img src="stardew valley.jpg" width="500">
     <h2>Genre: Simulator</h2>
@@ -88,7 +116,9 @@
         made by 1 single person. If you want to support him, go and buy it on steam <a href="https://store.steampowered.com/app/413150/Stardew_Valley/"target="_blank">here</a>.
     </h2>
     <div id="Terraria">
-    <h1>Terraria</h1>
+    <h1>Terraria
+         <button type="button" class="favorite" data-game="Terraria">☆</button> 
+    </h1>
     </div>
     <img src="terraria.jpg" width="500">
     <h2>Genre: 2D sandbox</h2>
@@ -100,7 +130,9 @@
         consider getting it on <a href="https://store.steampowered.com/app/105600/Terraria/"target="_blank">steam</a>.
     </h2> 
     <div id="rdr2"> 
-    <h1>Red Dead Redemption 2</h1>
+    <h1>Red Dead Redemption 2
+        <button type="button" class="favorite" data-game="rdr2">☆</button> 
+    </h1>
     </div>
     <img src="rdr.png" width="500">
     <h2>Genre: Open world action</h2>
@@ -115,7 +147,9 @@
         <a href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/"target="_blank"> here</a> for 60 dollars (or whatever currency obviously).
     </h2>
     <div id="tlou">
-    <h1>The Last Of Us Part I</h1>
+    <h1>The Last Of Us Part I
+        <button type="button" class="favorite" data-game="tlou">☆</button> 
+    </h1>
     </div>
     <img src="tlou 1.jpg" width="500">
     <h2>Genre: Story/ action game</h2>
@@ -128,7 +162,9 @@
         but frequently goes on sale.
     </h2>
     <div id="tlou2">
-    <h1>The Last Of Us Part II Remastered</h1>
+    <h1>The Last Of Us Part II Remastered
+        <button type="button" class="favorite" data-game="tlou2">☆</button> 
+    </h1>
     </div>
     <img src="tlou 2.jpg" width="500">
     <h2>Genre: Story/ action game</h2>
@@ -139,7 +175,9 @@
         it is set a few years after part 1 and is driven by Ellie's anger and revenge. It explores what anger does to people 
         and how far it can change them. The game is 50 euros / dollars on <a href="https://store.steampowered.com/app/2531310/The_Last_of_Us_Part_II_Remastered/"target="_blank">Steam</a>. But also gets discounted often <h2>
     <div id="hm">
-    <h1>Hotline Miami</h1>
+    <h1>Hotline Miami
+        <button type="button" class="favorite" data-game="hm">☆</button> 
+    </h1>
     </div>
     <img src="hm.jpg" width='500'>
     <h2>Genre: Action, Arcade </h2>
@@ -150,7 +188,9 @@
         It is really fast paced and you die in one hit, but you respawn immediately so its about learning the level.
         It is also partly known for its great soundtracks and its really violent, so not for everyone. The gameis  10 euros / dollars on <a href="https://store.steampowered.com/app/219150/Hotline_Miami/"target="_blank">steam</a>
         <div id="hm2">
-        <h1>Hotline Mami 2: Wrong Number</h1>
+        <h1>Hotline Mami 2: Wrong Number
+            <button type="button" class="favorite" data-game="hm2">☆</button> 
+        </h1>
         </div>
         <img src="Hm2.png" width='500'>
          <h2>Genre: Action, Arcade </h2>
@@ -160,7 +200,9 @@
             It is really violent, so it is not recommended for everybody. Hotline Miami 2 has a great story but also, real life lessons which are really important and helpful.
             It shows the player about how violence just results in more violence, and many more. Hotline Miami 2: Wrong Number is 15 dollars / euros on <a href="https://store.steampowered.com/app/274170/Hotline_Miami_2_Wrong_Number/"target="_blank">steam</a>.</h2>
         <div id="GTA5">
-        <h1>Grand Theft Auto 5</h1>    
+        <h1>Grand Theft Auto 5
+            <button type="button" class="favorite" data-game="GTA5">☆</button> 
+        </h1>    
         </div>
         <img src="GTA5.jpg" width="500">
         <h2>Genre: Action, Open world</h2>
@@ -181,6 +223,16 @@
             background-color: #293541;
             color: white;
         } 
+        .favorite {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .favorite.active {
+            color: #FFD700;
+        }
         .games {
             background-color: #293541;
             padding: 25px;
